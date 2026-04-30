@@ -1,0 +1,36 @@
+# Compiled Java class files
+*.class
+
+# Java packaging
+*.jar
+*.war
+*.ear
+*.nar
+
+# Build output
+bin/
+build/
+out/
+target/
+
+# Logs and crash reports
+*.log
+hs_err_pid*
+replay_pid*
+
+# IDE / editor files
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.project
+.classpath
+.settings/
+*.swp
+*~
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
