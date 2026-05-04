@@ -21,6 +21,7 @@ public class Server {
   // stores log lines and writes them to a text file
   static ArrayList<String> logs = new ArrayList<String>();
   static String logFile = "server-log.txt";
+  static final Object logLock = new Object();
 
   public static void main(String[] args) throws Exception {
     int port = 8080;
@@ -250,9 +251,11 @@ public class Server {
   }
 
   static void addLog(String line) {
-    String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-    logs.add(time + " " + line);
-    writeLogs();
+    synchronized (logLock) {
+      String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+      logs.add(time + " " + line);
+      writeLogs();
+    }
   }
 
   static void writeLogs() {
